@@ -16,36 +16,46 @@ Features:
                    - View Transaction History of logged in user
    
 Home page
+
 ![image](https://github.com/user-attachments/assets/9b54436d-4ad2-400c-b576-520eb754d423)
 
 SignUp page
+
 ![image](https://github.com/user-attachments/assets/0c4f9091-0dd3-4d02-8c65-8b182f309d2b)
 
 Login Page
+
 ![image](https://github.com/user-attachments/assets/57ad9ae9-1a93-4173-b28d-4aa7d7659adf)
 
 Admin Dashboard
+
 ![image](https://github.com/user-attachments/assets/c237ff75-afc6-4e20-bb13-8fa7efba37d1)
 
 Admin has access to - refer below images
+
 ![image](https://github.com/user-attachments/assets/0092f13c-bc8b-411a-b4c1-65cff513d181)
 ![image](https://github.com/user-attachments/assets/ac3b6a32-8c13-40cb-89fb-436b4ea941f7)
 ![image](https://github.com/user-attachments/assets/5450f33b-1254-4829-8543-e6a1bac84913)
 ![image](https://github.com/user-attachments/assets/0bcc91c9-cdd3-4b31-bba2-f9a268d81249)
 
 Add Bus (Admin)
+
 ![image](https://github.com/user-attachments/assets/dc8d4b48-7f2b-4862-9e56-4d798a2458d0)
 
 Bus Lists (Admin) - Edit, Delete, Book options
+
 ![image](https://github.com/user-attachments/assets/af0c307d-70eb-4096-b0b0-3e78dba502df)
 
 Edit Bus (Admin)
+
 ![image](https://github.com/user-attachments/assets/bb37ac16-93b4-4e15-a3b8-bffeea3b2737)
 
 Book Bus - Autopopulates only Bus information on click of that particular Bus 
+
 ![image](https://github.com/user-attachments/assets/807e5146-2cf9-4951-8128-3edc74d675bd)
 
-Payment Page - Redirects to payment once click on Pay and Book Button (auto populates the Total price on UI based on number of tickets booked)
+Payment Page - BookBus option redirects to this payment page once click on Pay and Book Button (auto populates the Total price on UI based on number of tickets booked)
+
 ![image](https://github.com/user-attachments/assets/23c4ddc0-d7a1-424e-a47d-31e1d1e0115d)
 
 Booking History (Admin)
