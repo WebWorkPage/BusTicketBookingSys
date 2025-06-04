@@ -42,7 +42,7 @@ Bus Lists (Admin) - Edit, Delete, Book options
 Edit Bus (Admin)
 ![image](https://github.com/user-attachments/assets/bb37ac16-93b4-4e15-a3b8-bffeea3b2737)
 
-Book Bus
+Book Bus - Autopopulates only Bus information on click of that particular Bus 
 ![image](https://github.com/user-attachments/assets/807e5146-2cf9-4951-8128-3edc74d675bd)
 
 Payment Page - Redirects to payment once click on Pay and Book Button (auto populates the Total price on UI based on number of tickets booked)
