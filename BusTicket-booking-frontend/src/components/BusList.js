@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -21,7 +21,7 @@ const BusList = () => {
 
     //load the employee list 
     const getBusList = async () => {
-       const response = await axios.get(REST_API_BASE_URL + "/buslist");
+       const response = await axios.get(`${process.env.REACT_APP_API_URL}/buslist`);
        console.log("Bus list page ",response);
        setBusList(response.data);
        setTempBusList(response.data);
@@ -116,5 +116,6 @@ const BusList = () => {
     </div>
     )
 }
+
 
 export default BusList;
