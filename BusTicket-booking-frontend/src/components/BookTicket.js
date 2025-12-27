@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 
 const BookTicket = () => {
 
@@ -30,7 +30,7 @@ const BookTicket = () => {
     }
 
     const loadBusInfo = async() => {
-        const response = await axios.get(REST_API_BASE_URL + `/bus/${busId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/bus/${busId}`);
         console.log("display bus info ",response.data);
         setBookTicket(response.data);
     }
@@ -43,7 +43,7 @@ const BookTicket = () => {
                 setError("Please fill in all the details");
                 return;
             }
-            const response = await axios.post(REST_API_BASE_URL + `/bookbus/${busId}/${userId}`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/bookbus/${busId}/${userId}`, {
                         busNumber: bookTicket.busNumber,
                         fromLoc: bookTicket.fromLoc,
                         toLoc: bookTicket.toLoc,
@@ -109,5 +109,6 @@ const BookTicket = () => {
         </div>
     )
 }
+
 
 export default BookTicket;
