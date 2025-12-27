@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import axios from "axios";
 import Navbar from "./Navbar";
 
@@ -30,7 +30,7 @@ const EditUser = () => {
     }
 
     const loadUserInfo = async() => {
-        const response = await axios.get(REST_API_BASE_URL + `/user/${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/${userId}`);
         console.log("display user ",response.data);
         setEditUser(response.data);
     }
@@ -42,7 +42,7 @@ const EditUser = () => {
                 setError("Please fill in all the details");
                 return;
             }
-            const response = await axios.put(REST_API_BASE_URL + `/edituser/${userId}`,editUser);
+            const response = await axios.put(`${process.env.REACT_APP_API_URL}/edituser/${userId}`,editUser);
             console.log("edit user ",response.data);
             if(response.data != null){
                 navigate("/userlist");
@@ -102,5 +102,6 @@ const EditUser = () => {
         </>
     )
 }
+
 
 export default EditUser;
