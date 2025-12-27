@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 
 const BookingHistory = () => {
     
@@ -17,13 +17,13 @@ const BookingHistory = () => {
     //load the employee list 
     const getBookingHistory = async () => {
        const APIURL = userId != null ? `/bookinghistory/user/${userId}` : "/bookinghistory"
-       const response = await axios.get(REST_API_BASE_URL + APIURL);
+       const response = await axios.get(process.env.REACT_APP_API_URL + APIURL);
        console.log("Bus list page ",response);
        setBookingHistory(response.data);
     }
 
     const cancelBooking = async(id)=>{
-        const response = await axios.delete(REST_API_BASE_URL + `/cancelbooking/${userId}`);
+        const response = await axios.delete(`${process.env.REACT_APP_API_URL}/cancelbooking/${userId}`);
         console.log(response.data);
         getBookingHistory();
     }
@@ -75,5 +75,6 @@ const BookingHistory = () => {
     </div>
     )
 }
+
 
 export default BookingHistory;
