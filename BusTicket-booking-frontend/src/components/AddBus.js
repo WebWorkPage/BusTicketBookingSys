@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import axios from "axios";
 
 const AddBus = () => {
@@ -30,7 +30,7 @@ const AddBus = () => {
                 setError("Please fill in all the details");
                 return;
             }
-            const response = await axios.post(REST_API_BASE_URL + "/addbus",addBus);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/addbus`,addBus);
             console.log("Add bus ",response.data);
             if(response.data != null){
                 alert("Bus added successfully");
@@ -84,5 +84,6 @@ const AddBus = () => {
         </div>
     )
 }
+
 
 export default AddBus;
