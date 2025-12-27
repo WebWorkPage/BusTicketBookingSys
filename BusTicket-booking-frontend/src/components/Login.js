@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { REST_API_BASE_URL, setAuthHeader } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, setAuthHeader, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import axios from "axios";
 import Navbar from "./Navbar";
 
@@ -30,7 +30,7 @@ const Login = () => {
                 setError("Please enter both the email and password");
                 return;
               }
-              const response = await axios.post(REST_API_BASE_URL + "/page/login", login
+              const response = await axios.post(`${process.env.REACT_APP_API_URL}/page/login`, login
             //    {
             //     headers: {
             //          'Authorization': `Basic ${btoa(login.email + ':' + login.password)}`,
@@ -89,5 +89,6 @@ const Login = () => {
         </>
     )
 }
+
 
 export default Login;
