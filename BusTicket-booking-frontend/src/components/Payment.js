@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { useLocation, Link } from "react-router-dom";
 import axios from "axios";
-import {REST_API_BASE_URL} from "../utils/AxiosInteraction";
+import {REST_API_BASE_URL, REACT_APP_API_URL} from "../utils/AxiosInteraction";
 
 const Payment = () => {
 
@@ -25,10 +25,10 @@ const Payment = () => {
         console.log("onsubmit payment st ",payment);
         try {
             //booking api call
-            // const response1 = await axios.post(REST_API_BASE_URL + "/bookbus", location.state);
+            // const response1 = await axios.post(`${process.env.REACT_APP_API_URL}/bookbus`, location.state);
 
 
-            const response = await axios.post(REST_API_BASE_URL + `/payment/${userId}/${bookingId}`,
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/payment/${userId}/${bookingId}`,
                 {...payment, paymentDate: new Date().toISOString() }
             );
             alert('Payment successful!');
@@ -96,5 +96,6 @@ const Payment = () => {
         </div>
     )
 }
+
 
 export default Payment;
