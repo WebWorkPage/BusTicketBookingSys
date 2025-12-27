@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -31,7 +31,7 @@ const EditBus = () => {
 
     const onSubmit= async(e)=>{
         e.preventDefault();     //to prevent the page from loading on click of submit
-        const response = await axios.put(REST_API_BASE_URL + `/editbus/${busId}`,editBus);
+        const response = await axios.put(`${process.env.REACT_APP_API_URL}/editbus/${busId}`,editBus);
         console.log("edit user ",response.data);
         if(response.data != null){
             navigate("/buslist", { state:{userId: userId} });
@@ -39,7 +39,7 @@ const EditBus = () => {
     }
 
     const loadBusInfo = async() => {
-        const response = await axios.get(REST_API_BASE_URL + `/bus/${busId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/bus/${busId}`);
         console.log("display bus ",response.data);
         setEditBus(response.data);
     }
@@ -84,5 +84,6 @@ const EditBus = () => {
         </div>
     )
 }
+
 
 export default EditBus;
