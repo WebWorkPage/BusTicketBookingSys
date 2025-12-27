@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import axios from "axios";
 import Navbar from "./Navbar";
 
@@ -31,7 +31,7 @@ const Register = () => {
                 setError("Please fill in all the details");
                 return;
             }
-            const response = await axios.post(REST_API_BASE_URL + "/register",addUser);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/register`,addUser);
             console.log("sign up ",response.data);
             if(response.data === "User registered successfully"){
                 navigate("/page/login");   //navigate to login page once Registered
@@ -92,5 +92,6 @@ const Register = () => {
         </>
     )
 }
+
 
 export default Register;
