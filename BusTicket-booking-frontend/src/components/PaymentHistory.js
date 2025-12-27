@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -17,12 +17,12 @@ const PaymentHistory = () => {
     //load the payment list 
     const getPaymentHistory = async () => {
         if(userId != null){
-            const response = await axios.get(REST_API_BASE_URL + `/payment/user/${userId}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/payment/user/${userId}`);
             console.log("Payment list with userId ",response.data);
             setPaymentLists(response.data);
         }
         else{
-            const response = await axios.get(REST_API_BASE_URL + "/paymentslist");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/paymentslist`);
             console.log("payment list ",response.data);
             setPaymentLists(response.data);
         }
@@ -68,5 +68,6 @@ const PaymentHistory = () => {
     </div>
     )
 }
+
 
 export default PaymentHistory;
