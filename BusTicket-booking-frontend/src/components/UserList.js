@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { REST_API_BASE_URL } from "../utils/AxiosInteraction";
+import { REST_API_BASE_URL, REACT_APP_API_URL } from "../utils/AxiosInteraction";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -13,13 +13,13 @@ const UserList = () => {
 
     //load the employee list 
     const getUserList = async () => {
-       const response = await axios.get(REST_API_BASE_URL + "/userlist");
+       const response = await axios.get(`${process.env.REACT_APP_API_URL}/userlist`);
        console.log("user list page ",response);
        setUserList(response.data);
     }
 
     const deleteUser= async(id)=>{
-        await axios.delete(REST_API_BASE_URL +`/deleteuser/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}/deleteuser/${id}`);
         getUserList(); //after deleted, load all the bus details 
     }
 
@@ -64,5 +64,6 @@ const UserList = () => {
     </div>
     )
 }
+
 
 export default UserList;
